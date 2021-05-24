@@ -29,22 +29,22 @@ export default {
       products: [
         {
           id: 1,
-          photo: '',
+          photo: 'Rato-computador.jpg',
           name: 'Rato',
           quantity: 2,
           price: 10
         },
         {
           id: 2,
-          photo: '',
-          name: 'Teclado 2',
+          photo: 'teclado-computador.jpg',
+          name: 'Teclado',
           quantity: 10,
           price: 15
         },
         {
           id: 3,
-          photo: '',
-          name: 'Monitor 2',
+          photo: 'ecra-monitor.png',
+          name: 'Monitor',
           quantity: 2,
           price: 200
         }
