@@ -26,42 +26,16 @@
       <ul
         v-else
         class="list-group">
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
+        <Todo
           v-for="(todo, index) in todos"
-          :key="index" >
-          <span
-            :class="{
-              'todo-done': todo.done
-            }">
-            {{ index + 1 }} - {{ todo.description }}
-          </span>
-
-          <div>
-            <button
-              v-if="todo.done"
-              @click="unmarkAsDone(todo)"
-              type="button"
-              class="btn btn-outline-primary margin-right">
-              Desmarcar como feita
-            </button>
-
-            <button
-              v-if="!todo.done"
-              @click="markAsDone(todo)"
-              type="button"
-              class="btn btn-outline-success margin-right">
-              Marcar como feita
-            </button>
-
-            <button
-              @click="deleteTodo(index)"
-              type="button"
-              class="btn btn-outline-danger">
-              Apagar
-            </button>
-          </div>
-        </li>
+          :key="index"
+          :todo="todo"
+          :index="index"
+          @delete-todo="deleteTodo"
+          @mark-as-done="markAsDone"
+          @unmark-as-done="unmarkAsDone"
+          @change-todo="changeTodo"
+        />
       </ul>
     </div>
     <div
@@ -87,8 +61,14 @@
 </template>
 
 <script>
+import Todo from '@/components/Todo.vue'
+
 export default {
   name: 'TodoList',
+
+  components: {
+    Todo
+  },
 
   computed: {
     hasTodos () {
